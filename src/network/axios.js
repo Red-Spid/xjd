@@ -24,10 +24,26 @@ function test(){
     return res.data
   })
 }
+function a(a){
+  return axios.get(a);
+}
+function all(){
+  var zow=[];
+  for(let i=0;i<arguments.length;i++){
+    zow.push(a(arguments[i]))
+  }
+  return axios.all(zow).then(axios.spread(
+    function(){
+      var da=[];
+      for(let p=0;p<arguments.length;p++){
+        da.push(arguments[p].data.data)
+      }
+      return da
+    }
+  ))
+}
 export default{
- helloWorld,
- test,
- read
+ helloWorld,test,read,a,all
 }
 // var record=function(a){
 //   axios.get(a,{

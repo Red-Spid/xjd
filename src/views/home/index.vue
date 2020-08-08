@@ -7,19 +7,30 @@
 </template>
 
 <script>
-    import Bscroll from 'better-scroll'
-    export default{
-        data(){
-            return{
-                arr:["1","2","3","4","5","6","7","8","9","10","1","2","3","4","5","6","7","8","9","10"]
-            }
-        },
-        mounted(){
+import Bscroll from 'better-scroll'
+export default{
+    data(){
+        return{
+            arr:["1","2","3","4","5","6","7","8","9","10","1","2","3","4","5","6","7","8","9","10"]
+        }
+    },
+    mounted(){
             this.$nextTick(() => {
                  this.scroll = new Bscroll(this.$refs.wrapper);
             });
+    },
+    created(){
+        this.forE()
+    },
+    methods:{
+        forE(){
+            this.arr.forEach((i,n)=>{
+                console.log(i,n)
+            })
+            console.log(this.arr);
         }
     }
+}
 </script>
 
 <style lang="less">
