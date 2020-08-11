@@ -1,3 +1,28 @@
+<!-- 
+    图片链接
+    http://106.12.85.17:8090/public/image/jd_category/dm-0001.jpg
+    jx-category jd_category
+
+
+    数据接口
+    http://106.12.85.17:8090/vuedemo/
+    get_    post_
+
+
+    img     ->  小图标
+-->
+
+
+
+
+
+
+
+
+
+
+
+
 # vue3-h5
 
 ## Project setup
