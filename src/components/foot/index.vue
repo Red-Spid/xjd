@@ -1,5 +1,5 @@
 <template>
-  <div class="fot">
+  <div class="fot" v-if="disappear">
     <div v-if="nan" slot="jd">
         <div v-for="(i,n) in foot" :key="n"  class="jd">
             <a v-if="n==show" @click="footImg(n,i)">
@@ -33,7 +33,8 @@ export default {
           jx:['xjx','xjxf','xjxz','xjxw'],
           da:['首页','分类','直播','我的'],
           show:0,
-          nan:true
+          nan:true,
+          disappear:false
       }
   },
   created(){
@@ -56,6 +57,11 @@ export default {
                   }
               }
           }
+          if(!this.$route.foot){
+              this.disappear=true
+          }else{
+              this.disappear=this.$route.foot;
+          }
       }
   },
   methods:{
@@ -66,6 +72,12 @@ export default {
                 a.show = key;
             }
           })
+          if(!a.$route.foot){
+              a.disappear=true
+          }else{
+              a.disappear=a.$route.foot;
+          }
+          
       },
       footImg(i,a){
           var rou = this.$route.path;

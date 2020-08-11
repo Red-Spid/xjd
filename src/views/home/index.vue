@@ -1,14 +1,18 @@
 <template>
-    <div class="recommend_box" ref='wrapper'>
-        <ul class="my_list">
-            <li v-for="(item,key) in arr" :key="key">第一条数据</li>
-        </ul>
+    <div>
+        <tit/>
+        <div class="recommend_box" ref='wrapper'>
+            <ul class="my_list">
+                <li v-for="(item,key) in arr" :key="key">第一条数据</li>
+            </ul>
+        </div>
     </div>
 </template>
-
 <script>
+import tit from '@/components/tit/return.vue'
 import Bscroll from 'better-scroll'
 export default{
+    components:{tit},
     data(){
         return{
             arr:["1","2","3","4","5","6","7","8","9","10","1","2","3","4","5","6","7","8","9","10"]
@@ -24,10 +28,10 @@ export default{
     },
     methods:{
         forE(){
-            this.arr.forEach((i,n)=>{
-                console.log(i,n)
-            })
-            console.log(this.arr);
+            // this.arr.forEach((i,n)=>{
+                // console.log(i,n)
+            // })
+            // console.log(this.arr);
         }
     }
 }

@@ -1,66 +1,29 @@
 <template>
     <div>
-        <div class="hea">头部</div>
-        <div class="let" ref="wrapper">
-            <ul class="content">
-                <li v-for="(i,index) in letData" :key="index" @click='active(index)' :class="{'active':t==index}">
-                    <a v-text='i.c1_name'></a>
-                </li>
-            </ul>
-        </div>
-       <div class="rit" ref='rit'>
-            <sll class="rit" ref='rit' :probeType="3">
-                <div v-for="(i,n) in rit" :key="n">
-                    <h1 v-text="i.c2_name"></h1>
-                    <ul>
-                        <li v-for="(item,index) in i.img" :key="index">
-                            <a>
-                                <img  :src="url+item"/>
-                                <p v-text='i.txt[index]'></p>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </sll>
-        </div>
+        <tit :url="from1" @go="chan"></tit>
+        <jd :num="letData" :url="url" :obj="rit"/>
     </div>
 </template>
 <script>
 import ax from '@/network/axios'
-import Bscroll from 'better-scroll'
-import sll from '@/components/center/bscroll1.vue'
+import tit from '@/components/tit/return.vue'
+import jd from '@/components/tit/jd.vue'
+// import beforNet from "@/componets/center/beforeRouteEnter.vue"
+// import search from '@/components/tit/search.vue'/search
 export default {
     name:"jdclass",
-    components:{sll},
+    components:{tit,jd},
+    beforeRouteEnter(to, from, next) {
+      next(vm => {
+        vm.from1=from.path;
+      });
+    },
     created(){
         this.data()
     },
-    mounted(){
-        this.$nextTick(() => {
-            if(!this.scroll){
-                this.scroll = new Bscroll(this.$refs.wrapper,{
-                    click:true,
-                    probeType:3,
-                    scrollY:true,
-                    scrollbar: true,
-                    pullUpLoad:true,
-                    preventDefault: false,
-                    tap: true,
-                    mouseWheel: true,
-                    bounce: false,
-                })
-                this.scroll.on('scroll',(position)=>{
-                    if(position.y>=1020){
-                        console.log('到达')
-                    }
-                })
-            }else{
-                this.scroll.refresh();
-            }
-        });
-    },
     data(){
         return{
+            from1:"",
             letData:{},
             url:'https://red-spid.github.io/data/img/jd/',
             rit:[],
@@ -72,18 +35,13 @@ export default {
         // http://106.12.85.17:8090/public/image/goods/
     },
     methods:{
+        chan(){
+            this.truth  = !this.truth;
+        },
         menu(){
              console.log(this.rit,this.length)
         },
-        active(a){
-            if(a<=27){
-                this.$refs.wrapper.querySelector("ul").setAttribute("style",
-                `transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
-                transition-duration: 0ms;
-                transform: translateX(0px) translateY(-`+a*46+`px) translateZ(0px);`)
-            }this.t = a;
-            // console.log(this.rit);
-        },
+        
         data(){
             ax.test().then(res=>{
                 this.jd=res.jd.class1
@@ -134,67 +92,3 @@ export default {
     }
 }
 </script>
-<style lang="less" scoped>
-@w:100%;
-.hea{height:44px}
-.rit{
-    width:80%;
-    position:absolute;
-    right:0;
-    height:83%;
-    overflow: hidden;
-    div{
-        width:@w;
-        div{
-            width:@w;
-            height:100%/13;
-            float:left;
-            h1{
-                line-height:24px;
-            }
-            a{
-                width:@w/3;
-                float:left;
-                img{
-                    width:70px;
-                    height:70px;
-                    margin:auto 20px;
-                }
-                p{
-                    text-align:center;
-                }
-            }
-        }
-    }
-}
-.let{
-    width:20%;
-    left:0;
-    z-index: 1;
-    position:absolute;
-    background: #f8f8f8;
-    margin-bottom:15%;
-    overflow: hidden;
-    height:83%;
-    ul{
-        text-align:center;
-        height:38/11*99.4%;
-        transition: all .5s;
-        -webkit-transition: all .5s;
-        -moz-transition: all .5s;
-        li{
-            a{
-                font-size:14px;
-                line-height:46px;
-                color:#333;
-            }
-        }
-        .active{
-            a{
-                color:#e93b3d;
-            }
-            background:white;
-        }
-    }
-}
-</style>
