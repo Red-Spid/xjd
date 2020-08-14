@@ -30,6 +30,7 @@ export default {
             click: true,
             probeType: this.probeType,
             scrollY:true,
+            scrollX:true,
             scrollbar: true,
             pullUpLoad:true,
             preventDefault: false,

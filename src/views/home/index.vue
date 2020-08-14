@@ -1,6 +1,7 @@
 <template>
     <div>
         <tit/>
+        <input type="checkbox" name="" id="">
         <div class="recommend_box" ref='wrapper'>
             <ul class="my_list">
                 <li v-for="(item,key) in arr" :key="key">第一条数据</li>
