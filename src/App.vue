@@ -4,6 +4,9 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
     </div> -->
+    <div class="p">
+      <p></p>
+    </div>
     <router-view/>
     <fot/>
   </div>
@@ -14,11 +17,26 @@ export default {
   name:"app",
   components:{
     fot
+  },
+  mounted(){
+    this.a()
+  },
+  methods:{
+    a(){
+      console.log(this.$store.commit('increment'))
+      console.log(this.$store)
+    }
   }
 }
 </script>
 <style lang="less">
 @import url('./assets/css/clear.css');
+.p{
+  p{
+    background:url('./assets/img/sigin/browserslistrc.jpg') repeat-x;
+    height:20px;
+  }
+}
 #app{width:100%;height:auto}
 #nav {
   padding: 30px;

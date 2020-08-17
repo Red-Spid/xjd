@@ -10,7 +10,8 @@ const routes = [
     name: 'jd',
     component: home,
     meta: {title:'多快好省，购物上京东！',keyword:'success-list',description:'维修工列表'}
-  },{
+  },
+  {
     path: '/search',
     name: 'search',
     component: ()=> import('@/views/search/search.vue'),

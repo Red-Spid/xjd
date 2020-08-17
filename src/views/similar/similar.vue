@@ -55,7 +55,9 @@ export default {
         sed111(){
             this.ipt=this.$route.query.content
             console.log(this.$route.query.content)
-            console.log(ax.read('get_details-1'));
+            ax.read('goods_all').then(res=>{
+                console.log(res)
+            })
         }
     },
 }

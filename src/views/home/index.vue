@@ -1,28 +1,31 @@
 <template>
     <div>
-        <tit/>
-        <input type="checkbox" name="" id="">
+        <div class="">
+        111111
+        </div>
         <div class="recommend_box" ref='wrapper'>
             <ul class="my_list">
-                <li v-for="(item,key) in arr" :key="key">第一条数据</li>
+                <li v-for="(item,key) in arr" :key="key">
+                    第{{key}}条数据
+                </li>
             </ul>
         </div>
     </div>
 </template>
 <script>
-import tit from '@/components/tit/return.vue'
+// import tit from '@/components/tit/return.vue'
 import Bscroll from 'better-scroll'
 export default{
-    components:{tit},
+    // components:{tit},
     data(){
         return{
             arr:["1","2","3","4","5","6","7","8","9","10","1","2","3","4","5","6","7","8","9","10"]
         }
     },
     mounted(){
-            this.$nextTick(() => {
-                 this.scroll = new Bscroll(this.$refs.wrapper);
-            });
+        this.$nextTick(() => {
+             this.scroll = new Bscroll(this.$refs.wrapper);
+        });
     },
     created(){
         this.forE()
@@ -37,7 +40,6 @@ export default{
     }
 }
 </script>
-
 <style lang="less">
     .recommend_box{
         overflow: hidden;
