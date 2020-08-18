@@ -1,10 +1,9 @@
 <template>
   <div>
     <div class="wrapper">
-      <swiper ref="mySwiper" :options="swiperOptions">
-        <swiper-slide v-for="(item,i) in picList" :key="i"><img :src="item.src"></swiper-slide>
-        <div class="swiper-pagination" slot="pagination"></div>
-      </swiper>
+        <div v-for="(item,i) in picList" :key="i"><img :src="item.src">
+          <img :src="item.src" alt="" srcset="">
+        </div>
     </div>
   </div>
 </template>

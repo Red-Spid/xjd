@@ -6,13 +6,6 @@ import axios from './network/axios'
 
 Vue.config.productionTip = false
 
-router.beforeEach((to, from, next) => {
-  if (to.meta.title) {
-    document.title = to.meta.title
-  }
-  next()
-})
-
 new Vue({
   router,store,axios,
   render: h => h(App)

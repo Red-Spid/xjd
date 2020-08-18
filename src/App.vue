@@ -1,13 +1,13 @@
 <template>
   <div id="app">
-    <!-- <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div> -->
-    <div class="p">
-      <p></p>
-    </div>
-    <router-view/>
+    <!--
+      <div class="p">
+        <p></p>
+      </div>
+    -->
+    <keep-alive>
+      <router-view/>
+    </keep-alive>
     <fot/>
   </div>
 </template>
@@ -23,8 +23,8 @@ export default {
   },
   methods:{
     a(){
-      this.$store.commit('increment')
-      // console.log(this.$store)
+      // this.$store.commit('increment')
+      console.log(this.$store)
     }
   }
 }
