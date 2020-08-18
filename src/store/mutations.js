@@ -26,5 +26,5 @@ function increment(state){
     window.localStorage.setItem('query','[]')
     state.local=window.localStorage.getItem('query')
     log(state)
-  }
-  export default {increment}
+}
+export default {increment}

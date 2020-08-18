@@ -11,6 +11,7 @@
 
     img     ->  小图标  
     http://106.12.85.17:8090/public/image/jd.png
+    http://106.12.85.17:8090/public/image/tabbar/home_active.svg
 
     利用本地进行缓存地址路由  用户信息  
         做出限制缓存20条    多出替换 头部清除一个

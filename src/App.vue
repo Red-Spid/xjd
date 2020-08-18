@@ -1,30 +1,31 @@
 <template>
   <div id="app">
     <!--
-      <div class="p">
-        <p></p>
-      </div>
+      <div class="p"><p></p></div>
     -->
     <keep-alive>
       <router-view/>
     </keep-alive>
-    <fot/>
+    <fot :pa="nan"/>
   </div>
 </template>
 <script>
-import fot from '@/components/foot/index.vue'
+import fot from '@/components/common/foot/index.vue'
 export default {
   name:"app",
-  components:{
-    fot
-  },
+  components:{fot},
   mounted(){
     this.a()
   },
+  data(){
+    return{
+      nan:''
+    }
+  },
   methods:{
     a(){
-      // this.$store.commit('increment')
-      console.log(this.$store)
+      this.$store.commit('increment')
+      this.nan=this.$store.state.args.url
     }
   }
 }

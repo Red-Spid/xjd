@@ -1,8 +1,8 @@
 <template>
   <div>
     <div class="wrapper">
-        <div v-for="(item,i) in picList" :key="i"><img :src="item.src">
-          <img :src="item.src" alt="" srcset="">
+        <div v-for="(item,i) in picList" :key="i">
+          <img :src="item.src" style="width:100%">
         </div>
     </div>
   </div>
