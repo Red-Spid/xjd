@@ -1,6 +1,11 @@
 import axios from 'axios'
 
-//get_jd_category_one
+/*
+  get_jd_category_one three two
+  get_jd_feature
+  get_jd_tabbar
+  homebanner
+*/
 axios.defaults.baseURL = 'http://106.12.85.17:8090/vuedemo/'
 
 function read(a){

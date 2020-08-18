@@ -23,8 +23,8 @@ export default {
   },
   methods:{
     a(){
-      console.log(this.$store.commit('increment'))
-      console.log(this.$store)
+      this.$store.commit('increment')
+      // console.log(this.$store)
     }
   }
 }
